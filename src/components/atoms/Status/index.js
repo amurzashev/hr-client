@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { BeatLoader } from 'react-spinners';
 import Caption from '../Caption';
-import { File, Planet } from 'react-kawaii';
+import { File, Planet, SpeechBubble } from 'react-kawaii';
 
 const Wrap = styled.div`
   height: 300px;
@@ -19,7 +19,12 @@ const Wrap = styled.div`
 
 const types = {
   'loading': <BeatLoader />,
-  'empty': <Caption size='l'>Nothing found😔</Caption>,
+  'empty': (
+    <>
+      <SpeechBubble color='#FFAB00' mood='sad' size={200} />
+      <Caption size='l'>Nothing found</Caption>
+    </>
+  ),
   '404': (
     <>
       <File color='#36B37E' mood='ko' size={200} />
