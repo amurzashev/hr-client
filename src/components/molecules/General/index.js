@@ -1,30 +1,48 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Caption from 'components/atoms/Caption';
-import moment from 'moment';
 import Main from './components/Main';
+import Details from './components/Details';
+import Day from './components/Day';
 
 const Wrap = styled.div`
-  padding: 20px;
-  background: ${props => props.theme.colors.primary.pacific};
   color: ${props => props.theme.colors.primary.white};
 `;
 
+const Head = styled.div`
+  background: ${props => props.theme.colors.primary.pacific};
+`;
+
+const Week = styled.div`
+  margin: auto;
+  width: 100%;
+  max-width: 900px;
+`;
+
 export default ({ info }) => {
-  console.log(info);
   const mainProps = {
     main: {
       apparentTemperature: info.currently.apparentTemperature,
       summary: info.currently.summary,
       icon: info.currently.icon,
+      fullSummary: info.hourly.summary,
     },
-  }
+  };
+  const detailsProps = {
+    details: {
+      uvIndex: info.currently.uvIndex,
+      humidity: info.currently.humidity,
+      windSpeed: info.currently.windSpeed,
+    },
+  };
   return (
     <Wrap>
-      <Main {...mainProps} />
-      <Caption size='l'>Today is {moment(Date.now()).format('dddd')}</Caption>
-      <Caption size='l'>Summary for today's weather: {info.hourly.summary}</Caption>
-      {info.daily.data.map(day => <Caption size='m' key={day.time}>{moment.unix(day.time).format('dddd')}</Caption>)}
+      <Head>
+        <Main {...mainProps} />
+        <Details {...detailsProps} />
+      </Head>
+      <Week>
+        { info.daily.data.map(day => <Day key={day.time} {...day} />) }
+      </Week>
     </Wrap>
   );
 };

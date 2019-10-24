@@ -11,6 +11,8 @@ const setSize = size => {
       return 20;
     case 'xl':
       return 24;
+    case 'xxl':
+        return 28;
     default:
       return 16;
   }
@@ -23,7 +25,7 @@ const Caption = styled.p`
 `;
 
 Caption.propTypes = {
-  size: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
+  size: PropTypes.oneOf(['s', 'm', 'l', 'xl', 'xxl']),
 };
 
 Caption.defaultProps = {

@@ -8,6 +8,8 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  padding: 20px;
 `;
 
 const Description = styled.div`
@@ -15,16 +17,14 @@ const Description = styled.div`
   flex-direction: row;
 `;
 
-const Main = ({ main }) => {
-  console.log(main)
-  return (
-    <Wrap>
-      <Description>
-        <Icon type={main.icon} />
-        <Caption size='xl'>{Math.round(main.apparentTemperature)}˚ {main.summary}</Caption>
-      </Description>
-    </Wrap>
-  );
-};
+const Main = ({ main }) => (
+  <Wrap>
+    <Description>
+      <Icon type={main.icon} />
+      <Caption size='xl'>{Math.round(main.apparentTemperature)}˚F {main.summary}</Caption>
+    </Description>
+    <Caption size='xxl'>{main.fullSummary}</Caption>
+  </Wrap>
+);
 
 export default Main;
