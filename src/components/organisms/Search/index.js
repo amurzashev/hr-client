@@ -65,7 +65,7 @@ const Search = ({ history }) => {
     error,
     value,
     type: 'text',
-    placeholder: 'Start typing here',
+    placeholder: 'City',
   };
   return (
     <Form onSubmit={onSubmit}>

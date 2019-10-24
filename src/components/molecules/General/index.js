@@ -15,7 +15,7 @@ export default ({ info }) => {
     <Wrap>
       <Caption size='l'>Today is {moment(Date.now()).format('dddd')}</Caption>
       <Caption size='l'>Summary for today's weather: {info.hourly.summary}</Caption>
-      {info.daily.data.map(day => <Caption size='m' key={day.time}>{moment.unix(day.time).format('dddd MMMM Do YYYY')}</Caption>)}
+      {info.daily.data.map(day => <Caption size='m' key={day.time}>{moment.unix(day.time).format('dddd')}</Caption>)}
     </Wrap>
   );
 };
