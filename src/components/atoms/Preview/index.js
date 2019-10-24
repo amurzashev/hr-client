@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Card  = styled(Link)`
   display: block;
   width: 440px;
-  height: 320px;
+  height: 220px;
   border-radius: 3px;
   background: ${props => props.theme.colors.primary.pacific};
   color: ${props => props.theme.colors.primary.white};
