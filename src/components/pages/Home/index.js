@@ -1,3 +1,4 @@
 import React from 'react';
+import Caption from 'components/atoms/Caption';
 
-export default () => <h1>home</h1>;
+export default () => <Caption size='l'>привт</Caption>;
