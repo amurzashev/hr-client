@@ -7,7 +7,7 @@ const Wrap = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  & > div:not(:last-child) {
+  & > a:not(:last-child) {
     margin-bottom: 20px;
   }
 `;

@@ -25,6 +25,7 @@ const Search = props => {
   if (!cities.length) {
     return <Status type={status} />;
   }
+  console.log(cities);
   return (
     <Gallery>
       {cities.map(city => <Preview key={city.geonameId} city={city} />)}
