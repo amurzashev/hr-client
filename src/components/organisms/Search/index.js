@@ -5,6 +5,10 @@ import Caption from '../../atoms/Caption';
 
 const Form = styled.form`
   display: flex;
+  width: 300px;
+  ${props => props.theme.breakpoints.mobile} {
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
@@ -14,6 +18,7 @@ const Input = styled.input`
   border-radius: 3px;
   border: 1px solid ${props => props.error ? props.theme.colors.secondary.poppy : props.theme.colors.primary.white};
   padding: 0 12px;
+  width: 100%;
 
 `;
 
@@ -30,6 +35,10 @@ const Button = styled.button`
 
 const InputWrap = styled.div`
   margin-right: 8px;
+  width: 100%;
+  & > p {
+    position: absolute;
+  }
 `;
 
 const Search = ({ history }) => {

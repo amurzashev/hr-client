@@ -8,7 +8,7 @@ const Wrap = styled.nav`
   background: ${props => props.theme.colors.primary.ink};
   padding: 0 20px;
   display: flex;
-  justify-content: center;
+  align-items: center;
 `;
 
 const Nav = () => {

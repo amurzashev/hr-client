@@ -14,7 +14,7 @@ theme.colors = {
 };
 
 theme.breakpoints = {
-
+  mobile: '@media only screen and (max-width: 920px)',
 };
 
 export default theme;
