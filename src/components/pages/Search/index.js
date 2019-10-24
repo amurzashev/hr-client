@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Status from 'components/atoms/Status';
+import Preview from 'components/atoms/Preview';
+import Gallery from 'components/molecules/Gallery';
 import apiRequest from 'apiRequest';
 
 const Search = props => {
@@ -7,6 +9,7 @@ const Search = props => {
   const [status, setStatus] = useState('loading');
   useEffect(() => {
     setStatus('loading');
+    setCities([]);
     apiRequest.get(`autocomplete/${props.match.params.city}`)
       .then(resp => {
         if (resp.data.locations.length === 0) {
@@ -15,14 +18,18 @@ const Search = props => {
         setCities(resp.data.locations);
       })
       .catch(() => {
+        setCities([]);
         setStatus('error');        
       });
   }, [props.match.params.city]);
-  if (!cities.length ) {
+  if (!cities.length) {
     return <Status type={status} />;
   }
-  console.log(cities);
-  return <p>ijhnjk</p>;
+  return (
+    <Gallery>
+      {cities.map(city => <Preview key={city.geonameId} city={city} />)}
+    </Gallery>
+  );
 };
 
 export default Search;

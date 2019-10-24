@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 import styled from '@emotion/styled';
 import { BeatLoader } from 'react-spinners';
@@ -16,7 +17,7 @@ const types = {
   'empty': <Caption size='l'>Nothing found😔</Caption>
 };
 
-export default ({ type }) => {
+export default ({ type = 'loading' }) => {
   return (
     <Wrap>
       { types[type] }
