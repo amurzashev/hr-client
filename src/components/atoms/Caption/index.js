@@ -19,10 +19,11 @@ const setSize = size => {
 const Caption = styled.p`
   font-size: ${props => setSize(props.size)}px;
   font-family: 'Roboto', sans-serif;
+  color: ${props => props.theme.colors.secondary[props.color]};
 `;
 
 Caption.propTypes = {
-  size: PropTypes.oneOf([12, 16, 20, 24]),
+  size: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
 };
 
 Caption.defaultProps = {

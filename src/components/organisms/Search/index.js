@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from '@emotion/styled';
+import Caption from '../../atoms/Caption';
 
 const Form = styled.form`
- & > input {
-   margin-right: 8px;
- }
+  display: flex;
 `;
 
 const Input = styled.input`
@@ -12,8 +12,9 @@ const Input = styled.input`
   outline: none;
   font-size: 14px;
   border-radius: 3px;
-  border: 0;
+  border: 1px solid ${props => props.error ? props.theme.colors.secondary.poppy : props.theme.colors.primary.white};
   padding: 0 12px;
+
 `;
 
 const Button = styled.button`
@@ -27,13 +28,46 @@ const Button = styled.button`
   font-size: 14px;
 `;
 
-export default () => {
+const InputWrap = styled.div`
+  margin-right: 8px;
+`;
+
+const Search = ({ history }) => {
+  const [error, setError] = useState('');
+  const [value, setValue] = useState('');
+  const onSubmit = e => {
+    e.preventDefault();
+    if (!value) {
+      setError('Please type any city');
+    } else {
+      history.push(`/search/${value}`);
+    }
+  };
+  const onChange = e => {
+    if (error) {
+      setError('');
+    }
+    setValue(e.target.value);
+  };
+  const inputProps = {
+    onSubmit,
+    onChange,
+    error,
+    value,
+    type: 'text',
+    placeholder: 'Start typing here',
+  };
   return (
-    <Form>
-      <Input type='text' placeholder='Start typing here' />
+    <Form onSubmit={onSubmit}>
+      <InputWrap>
+        <Input {...inputProps} />
+        <Caption size='s' color='poppy'>{error}</Caption>
+      </InputWrap>
       <Button>
         Search
       </Button>
     </Form>
   );
 };
+
+export default withRouter(Search);
