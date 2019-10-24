@@ -27,7 +27,7 @@ Caption.propTypes = {
 };
 
 Caption.defaultProps = {
-  size: 16
+  size: 'm'
 };
 
 export default Caption;

@@ -5,15 +5,21 @@ import Caption from '../../atoms/Caption';
 
 const Form = styled.form`
   display: flex;
+  width: 300px;
+  ${props => props.theme.breakpoints.mobile} {
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
   height: 36px;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 3px;
   border: 1px solid ${props => props.error ? props.theme.colors.secondary.poppy : props.theme.colors.primary.white};
   padding: 0 12px;
+  width: 100%;
+  appearance: none;
 
 `;
 
@@ -25,11 +31,15 @@ const Button = styled.button`
   background: ${props => props.theme.colors.secondary.pine};
   border: 0;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 const InputWrap = styled.div`
   margin-right: 8px;
+  width: 100%;
+  & > p {
+    position: absolute;
+  }
 `;
 
 const Search = ({ history }) => {
