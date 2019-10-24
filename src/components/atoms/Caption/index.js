@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const setSize = size => {
   switch (size) {
@@ -11,11 +12,21 @@ const setSize = size => {
     case 'xl':
       return 24;
     default:
-      return 16
+      return 16;
   }
 };
 
-export default styled.p`
+const Caption = styled.p`
   font-size: ${props => setSize(props.size)}px;
   font-family: 'Roboto', sans-serif;
 `;
+
+Caption.propTypes = {
+  size: PropTypes.oneOf([12, 16, 20, 24]),
+};
+
+Caption.defaultProps = {
+  size: 16
+};
+
+export default Caption;
