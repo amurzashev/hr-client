@@ -20,7 +20,7 @@ const Card  = styled(Link)`
 
 const Preview = ({ city }) => {
   return (
-    <Card to={`city/${city.lat},${city.lng}`}>
+    <Card to={`/city/${city.lat},${city.lng}`}>
       <Caption>{city.name}, {city.countryCode}</Caption>
     </Card>
   )
