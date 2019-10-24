@@ -19,7 +19,7 @@ const Search = props => {
       })
       .catch(() => {
         setCities([]);
-        setStatus('error');        
+        setStatus('connection');        
       });
   }, [props.match.params.city]);
   if (!cities.length) {

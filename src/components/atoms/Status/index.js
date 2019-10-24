@@ -32,6 +32,12 @@ const types = {
       <Caption size='xl'>Hello world!</Caption>
     </>
   ),
+  'connection': (
+    <>
+      <File color='#36B37E' mood='ko' size={200} />
+      <Caption size='xl'>Something went wrong</Caption>
+    </>
+  ),
 };
 
 export default ({ type = 'loading' }) => {

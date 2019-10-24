@@ -17,7 +17,7 @@ const City = props => {
       }
     })
     .catch(() => {
-      setStatus('empty');
+      setStatus('connection');
     });
   }, [props.match.params.coordinates]);
   if (status) {
