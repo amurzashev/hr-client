@@ -1,7 +1,6 @@
 import React from 'react';
+import Status from 'components/atoms/Status';
 
-const NotFound = () => {
-  return <p>not found</p>;
-};
+const NotFound = () => <Status type='404' />
 
 export default NotFound;

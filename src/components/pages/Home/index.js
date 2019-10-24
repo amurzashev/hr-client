@@ -1,9 +1,4 @@
 import React from 'react';
-import HomeTemplate from 'components/templates/HomeTemplate';
+import Status from 'components/atoms/Status';
 
-export default () => {
-  return (
-    <HomeTemplate>
-    </HomeTemplate>
-  )
-};
+export default () => <Status type='home' />
