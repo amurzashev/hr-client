@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import apiRequest from 'apiRequest';
 import Status from 'components/atoms/Status';
+import General from 'components/molecules/General';
 
 const City = props => {
   const [weather, setWeather] = useState({});
@@ -8,12 +9,26 @@ const City = props => {
   useEffect(() => {
     apiRequest(`current/${props.match.params.coordinates}`)
     .then(resp => {
-      setWeather(resp.data);
+      if (resp.data.code === 400) {
+        setStatus('empty');
+      } else {
+        setWeather(resp.data);
+        setStatus('');
+      }
     })
-    .catch(err => console.log(err.response.data));
+    .catch(() => {
+      setStatus('empty');
+    });
   }, [props.match.params.coordinates]);
-  if (Object.entries(weather).length === 0) return <Status type={status} />
-  return <p>city info</p>
+  if (status) {
+    return <Status type={status} />
+  } else {
+    return (
+      <>
+        <General info={weather} />
+      </>
+    );
+  }
 };
 
 export default City;
